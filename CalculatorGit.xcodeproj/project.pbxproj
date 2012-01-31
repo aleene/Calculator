@@ -15,6 +15,7 @@
 		51E44D9014D7D8CB00811C9F /* CalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E44D8F14D7D8CB00811C9F /* CalculatorAppDelegate.m */; };
 		51E44D9314D7D8CB00811C9F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51E44D9114D7D8CB00811C9F /* MainStoryboard.storyboard */; };
 		51E44D9614D7D8CB00811C9F /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E44D9514D7D8CB00811C9F /* CalculatorViewController.m */; };
+		51E44D9E14D7E70000811C9F /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E44D9D14D7E70000811C9F /* CalculatorBrain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		51E44D9214D7D8CB00811C9F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		51E44D9414D7D8CB00811C9F /* CalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
 		51E44D9514D7D8CB00811C9F /* CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
+		51E44D9C14D7E70000811C9F /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
+		51E44D9D14D7E70000811C9F /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 				51E44D8E14D7D8CB00811C9F /* CalculatorAppDelegate.h */,
 				51E44D8F14D7D8CB00811C9F /* CalculatorAppDelegate.m */,
 				51E44D9114D7D8CB00811C9F /* MainStoryboard.storyboard */,
+				51E44D9C14D7E70000811C9F /* CalculatorBrain.h */,
+				51E44D9D14D7E70000811C9F /* CalculatorBrain.m */,
 				51E44D9414D7D8CB00811C9F /* CalculatorViewController.h */,
 				51E44D9514D7D8CB00811C9F /* CalculatorViewController.m */,
 				51E44D8614D7D8CB00811C9F /* Supporting Files */,
@@ -164,6 +169,7 @@
 				51E44D8C14D7D8CB00811C9F /* main.m in Sources */,
 				51E44D9014D7D8CB00811C9F /* CalculatorAppDelegate.m in Sources */,
 				51E44D9614D7D8CB00811C9F /* CalculatorViewController.m in Sources */,
+				51E44D9E14D7E70000811C9F /* CalculatorBrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,14 +7,16 @@
 //
 
 #import "CalculatorViewController.h"
-
+// import the definitions of the CalculatorBrain class so we can use them
+#import "CalculatorBrain.h"             
+/*  declaration of private instance variables */
 @interface CalculatorViewController ()
-/*  declaration of private instance variables
- */
+
 /*  boolean, which is either YES or NO
     long variable names is encouraged, Xcode helps typing
  */
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
+@property (nonatomic, strong) CalculatorBrain *brain;
 
 @end
 
@@ -25,9 +27,21 @@
  */
 @synthesize display = _display;
 @synthesize userIsInTheMiddleOfEnteringANumber = _userIsInTheMiddleOfEnteringANumber;
+@synthesize brain = _brain;
 
-/*  All original methods in the template have been deleted 
+/*                                  All original methods in the template have been deleted              */
+
+
+- (CalculatorBrain *)brain
+{   
+/*  lazy instantiation for brain, only create it when it is called
+    instantiate properties only in the getter
  */
+    if (!_brain) {
+        _brain = [[CalculatorBrain alloc] init];
+    }
+    return _brain;
+}
 
 /*  method declaration digitPressed:
     The return value is typedeffed to IBAction, which is void. It is used by Xcode.
@@ -39,13 +53,17 @@
     id changed to UIButton *, so that Xcode helps better with completion and
     limit possible erros
  */
-    NSString *digit = [sender currentTitle];
+/*  NSString *digit = [sender currentTitle];
+    is currentTitle making a copy or giving a pointer???
+    it is a getter, so we can suppress this code line
+ */
+    
 /*  %@ is for strings 
     NSLog(@"digit pressed = %@", digit);
  */
     if (self.userIsInTheMiddleOfEnteringANumber) {
         
-    self.display.text = [self.display.text stringByAppendingString:digit];
+    self.display.text = [self.display.text stringByAppendingString:sender.currentTitle];
 /*  which is short for:
     UILabel *myDisplay = self.display; // the same as: [self display]
     NSString *currentText = myDisplay.text; //[myDisplay text] for getters use the dot-notation!
@@ -54,13 +72,30 @@
  */
     }
     else { // the user starts off a new number
-        self.display.text = digit;
+        // we do not check for new leading zero's. One could add an if to check for this
+        self.display.text = sender.currentTitle;
         self.userIsInTheMiddleOfEnteringANumber = YES;
     }
 }
-- (IBAction)operationPressed:(id)sender {
+- (IBAction)enterPressed
+{
+    // enterPressed should add the operand to the stack
+    [self.brain pushOperand:[self.display.text doubleValue]];
+    // if something is pushed on the stack, the user no longer types a number (we just entered it)
+    self.userIsInTheMiddleOfEnteringANumber = NO;
 }
-- (IBAction)enterPressed {
+
+- (IBAction)operationPressed:(UIButton * )sender {
+    // help the user and finish the number is needed
+    // note that enterPressed only works here, if it appears after the definition of enterPressed
+    if (self.userIsInTheMiddleOfEnteringANumber) [self enterPressed];
+    // do the operation from the title of the button (bad design)
+    double result = [self.brain performOperation:sender.currentTitle];
+    // create a string from the double, so we can display it
+    // Note that this is sent to the class NSString
+    NSString *resultString = [NSString stringWithFormat:@"%g", result];
+    // change the display
+    self.display.text = resultString;
 }
 
 @end
