@@ -9,52 +9,27 @@
 #import "CalculatorViewController.h"
 
 @implementation CalculatorViewController
+/*  add the name of the instance variable (_display):
+    @synthesize creates the setter and the getter
+    when the storyboard gets loaded by the stroryboard calles the setter
+ */
+@synthesize display = _display;
+/*  All original methods in the template have been deleted 
+ */
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+/*  method declaration digitPressed:
+    The return value is typedeffed to IBAction, which is void. It is used by Xcode.
+    The argument of the method is the object that invoked the method.
+    This has type "id", which means any object.
+*/
+- (IBAction)digitPressed:(UIButton *)sender {
+/*  - (IBAction)digitPressed:(id)sender
+    id changed to UIButton *, so that Xcode helps better with completion and
+    limit possible erros
+*/
+    NSString *digit = [sender currentTitle];
+    /*  %@ is for strings */
+    NSLog(@"digit pressed= %@", digit);
 }
 
 @end

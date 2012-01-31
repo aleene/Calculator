@@ -22,14 +22,14 @@
 		51E44D7F14D7D8CB00811C9F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		51E44D8114D7D8CB00811C9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		51E44D8314D7D8CB00811C9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		51E44D8714D7D8CB00811C9F /* CalculatorGit-Info.plist */ = {isa = PBXFileReference; path = "CalculatorGit-Info.plist"; sourceTree = "<group>"; };
+		51E44D8714D7D8CB00811C9F /* CalculatorGit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalculatorGit-Info.plist"; sourceTree = "<group>"; };
 		51E44D8914D7D8CB00811C9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		51E44D8B14D7D8CB00811C9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		51E44D8D14D7D8CB00811C9F /* CalculatorGit-Prefix.pch */ = {isa = PBXFileReference; path = "CalculatorGit-Prefix.pch"; sourceTree = "<group>"; };
-		51E44D8E14D7D8CB00811C9F /* CalculatorAppDelegate.h */ = {isa = PBXFileReference; path = CalculatorAppDelegate.h; sourceTree = "<group>"; };
+		51E44D8D14D7D8CB00811C9F /* CalculatorGit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CalculatorGit-Prefix.pch"; sourceTree = "<group>"; };
+		51E44D8E14D7D8CB00811C9F /* CalculatorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorAppDelegate.h; sourceTree = "<group>"; };
 		51E44D8F14D7D8CB00811C9F /* CalculatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorAppDelegate.m; sourceTree = "<group>"; };
 		51E44D9214D7D8CB00811C9F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		51E44D9414D7D8CB00811C9F /* CalculatorViewController.h */ = {isa = PBXFileReference; path = CalculatorViewController.h; sourceTree = "<group>"; };
+		51E44D9414D7D8CB00811C9F /* CalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
 		51E44D9514D7D8CB00811C9F /* CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
