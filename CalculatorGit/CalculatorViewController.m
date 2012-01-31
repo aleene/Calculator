@@ -21,15 +21,23 @@
     The return value is typedeffed to IBAction, which is void. It is used by Xcode.
     The argument of the method is the object that invoked the method.
     This has type "id", which means any object.
-*/
+ */
 - (IBAction)digitPressed:(UIButton *)sender {
 /*  - (IBAction)digitPressed:(id)sender
     id changed to UIButton *, so that Xcode helps better with completion and
     limit possible erros
-*/
+ */
     NSString *digit = [sender currentTitle];
-    /*  %@ is for strings */
-    NSLog(@"digit pressed= %@", digit);
+/*  %@ is for strings 
+    NSLog(@"digit pressed = %@", digit);
+ */
+    self.display.text = [self.display.text stringByAppendingString:digit];
+/*  which is short for:
+    UILabel *myDisplay = self.display; // the same as: [self display]
+    NSString *currentText = myDisplay.text; //[myDisplay text] for getters use the dot-notation!
+    NSString *newText = [currentText stringByAppendingString:digit]; // add a string to another string
+    myDisplay.text = newText; // use the setter for this:[myDisplay setText:newText];
+ */
 }
 
 @end
