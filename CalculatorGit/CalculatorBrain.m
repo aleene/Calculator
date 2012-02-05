@@ -67,7 +67,19 @@
     } else if ([@"/" isEqualToString:operation]) {
         double part2 = [self popOperand];
         result = [self popOperand] / part2;
-    }
+    } else if ([operation isEqualToString:@"sin"])
+    {
+        result = sin([self popOperand]);
+    } 
+    else if ([operation isEqualToString:@"cos"])
+    {
+        result = cos([self popOperand]);
+    } 
+    else if ([operation isEqualToString:@"π"])
+    {
+        result = acos(0.0) * 2.0;
+    } 
+
     [self pushOperand:result]; // add result to the stack for the next operation
     
     return result;
