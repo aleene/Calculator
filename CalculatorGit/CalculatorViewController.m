@@ -61,9 +61,20 @@
 /*  %@ is for strings 
     NSLog(@"digit pressed = %@", digit);
  */
-    if (self.userIsInTheMiddleOfEnteringANumber) {
+    if (self.userIsInTheMiddleOfEnteringANumber) {               
+        if ([sender.currentTitle isEqualToString:@"."])             // has a digit been pressed? 
+        {   // using the hint 1 in assignment 1
+            NSRange range = [self.display.text rangeOfString:@"."];
+            if (range.location == NSNotFound) {                     // was this the first digit?
+                self.display.text = [self.display.text stringByAppendingString:sender.currentTitle]; //[self.display setText:newDisplayText];
+            }
+        }
+        else // the entered digit is not a dot
+        {                                                                       
+            self.display.text = [self.display.text stringByAppendingString:sender.currentTitle]; // was: [self.display setText:newDisplayText];
+        }
         
-    self.display.text = [self.display.text stringByAppendingString:sender.currentTitle];
+
 /*  which is short for:
     UILabel *myDisplay = self.display; // the same as: [self display]
     NSString *currentText = myDisplay.text; //[myDisplay text] for getters use the dot-notation!
