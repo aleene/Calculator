@@ -61,6 +61,12 @@
         result = [self popOperand] + [self popOperand];
     } else if ([@"*" isEqualToString:operation]) {
         result = [self popOperand] * [self popOperand];
+    } else if ([@"-" isEqualToString:operation]) {
+        double part2 = [self popOperand];
+        result = [self popOperand] - part2;
+    } else if ([@"/" isEqualToString:operation]) {
+        double part2 = [self popOperand];
+        result = [self popOperand] / part2;
     }
     [self pushOperand:result]; // add result to the stack for the next operation
     
