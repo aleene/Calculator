@@ -26,6 +26,7 @@
     when the storyboard gets loaded by the stroryboard calles the setter
  */
 @synthesize display = _display;
+@synthesize equationLabel = _equationLabel;      //  for Assignment 1-4
 @synthesize userIsInTheMiddleOfEnteringANumber = _userIsInTheMiddleOfEnteringANumber;
 @synthesize brain = _brain;
 
@@ -94,6 +95,8 @@
     [self.brain pushOperand:[self.display.text doubleValue]];
     // if something is pushed on the stack, the user no longer types a number (we just entered it)
     self.userIsInTheMiddleOfEnteringANumber = NO;
+    self.equationLabel.text = [self.equationLabel.text stringByAppendingFormat:@" %@",self.display.text];
+
 }
 
 - (IBAction)operationPressed:(UIButton * )sender {
@@ -107,6 +110,11 @@
     NSString *resultString = [NSString stringWithFormat:@"%g", result];
     // change the display
     self.display.text = resultString;
+    self.equationLabel.text = [self.equationLabel.text stringByAppendingFormat:@" %@",sender.currentTitle];
 }
 
+- (void)viewDidUnload {
+    [self setEquationLabel:nil];
+    [super viewDidUnload];
+}
 @end

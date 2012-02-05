@@ -18,5 +18,6 @@
     Note the round circle in the gutter, mouse over to see where it is connected to
  */
 @property (weak, nonatomic) IBOutlet UILabel *display;
+@property (weak, nonatomic) IBOutlet UILabel *equationLabel;
 
 @end
