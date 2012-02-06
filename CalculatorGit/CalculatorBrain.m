@@ -73,7 +73,12 @@
     else if ([@"/" isEqualToString:operation]) 
     {
         double part2 = [self popOperand];
-        result = [self popOperand] / part2;
+        if (part2 != 0.0) {
+            result = [self popOperand] / part2;
+        } else
+        {
+            return 0.0;
+        }
     } 
     else if ([operation isEqualToString:@"sin"])
     {
@@ -85,7 +90,14 @@
     }
     else if ([operation isEqualToString:@"sqrt"])
     {
-        result = sqrt([self popOperand]);
+        double part2 = [self popOperand];
+        if (part2 >= 0.0) {
+            result = sqrt(part2);
+        }
+        else {
+            result = 0.0;
+        }
+        
     } 
     else if ([operation isEqualToString:@"π"])
     {
