@@ -98,11 +98,27 @@
     self.equationLabel.text = [self.equationLabel.text stringByAppendingFormat:@" %@",self.display.text];
 
 }
-- (IBAction)clearPressed {
+- (IBAction)clearPressed
+{
     [self.brain clear];
     self.display.text = @"0";
     self.equationLabel.text = @"";
     self.userIsInTheMiddleOfEnteringANumber = NO;
+}
+
+- (IBAction)clearError
+{
+    if (self.userIsInTheMiddleOfEnteringANumber) {
+        // clear the display
+        if ([self.display.text length] > 1) { 
+            self.display.text = [self.display.text substringToIndex:[self.display.text length]-1];
+        }
+        else
+        {                                      // last number deleted? replace with 0 then
+            self.display.text = @"0";
+            self.userIsInTheMiddleOfEnteringANumber = NO;
+        }
+    }
 }
 
 - (IBAction)operationPressed:(UIButton * )sender {
