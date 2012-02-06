@@ -57,23 +57,35 @@
 }
 - (double)performOperation:(NSString *)operation {
     double result = 0;
-    if ([operation isEqualToString:@"+"]) {
+    if ([operation isEqualToString:@"+"]) 
+    {
         result = [self popOperand] + [self popOperand];
-    } else if ([@"*" isEqualToString:operation]) {
+    } 
+    else if ([@"*" isEqualToString:operation]) 
+    {
         result = [self popOperand] * [self popOperand];
-    } else if ([@"-" isEqualToString:operation]) {
+    } 
+    else if ([@"-" isEqualToString:operation]) 
+    {
         double part2 = [self popOperand];
         result = [self popOperand] - part2;
-    } else if ([@"/" isEqualToString:operation]) {
+    } 
+    else if ([@"/" isEqualToString:operation]) 
+    {
         double part2 = [self popOperand];
         result = [self popOperand] / part2;
-    } else if ([operation isEqualToString:@"sin"])
+    } 
+    else if ([operation isEqualToString:@"sin"])
     {
         result = sin([self popOperand]);
     } 
     else if ([operation isEqualToString:@"cos"])
     {
         result = cos([self popOperand]);
+    }
+    else if ([operation isEqualToString:@"sqrt"])
+    {
+        result = sqrt([self popOperand]);
     } 
     else if ([operation isEqualToString:@"π"])
     {
@@ -83,5 +95,10 @@
     [self pushOperand:result]; // add result to the stack for the next operation
     
     return result;
+}
+
+- (void)clear
+{
+    [self.operandStack removeAllObjects];
 }
 @end

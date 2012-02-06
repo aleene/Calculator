@@ -12,5 +12,6 @@
 
 - (void)pushOperand:(double)operand;
 - (double)performOperation:(NSString *)operation; // the same strings as on the button (bad design)
+- (void)clear;
 
 @end

@@ -98,6 +98,12 @@
     self.equationLabel.text = [self.equationLabel.text stringByAppendingFormat:@" %@",self.display.text];
 
 }
+- (IBAction)clearPressed {
+    [self.brain clear];
+    self.display.text = @"0";
+    self.equationLabel.text = @"";
+    self.userIsInTheMiddleOfEnteringANumber = NO;
+}
 
 - (IBAction)operationPressed:(UIButton * )sender {
     // help the user and finish the number is needed
