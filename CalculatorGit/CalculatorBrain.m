@@ -98,7 +98,11 @@
             result = 0.0;
         }
         
-    } 
+    }
+    else if ([operation isEqualToString:@"+/-"])
+    {
+        result = - [self popOperand];
+    }
     else if ([operation isEqualToString:@"π"])
     {
         result = acos(0.0) * 2.0;

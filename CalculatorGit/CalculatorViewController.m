@@ -70,6 +70,11 @@
                 self.display.text = [self.display.text stringByAppendingString:sender.currentTitle]; //[self.display setText:newDisplayText];
             }
         }
+        else if ([sender.currentTitle isEqualToString:@"+/-"])
+        {
+            self.display.text = [@"-" stringByAppendingString:self.display.text];
+            
+        }
         else // the entered digit is not a dot
         {                                                                       
             self.display.text = [self.display.text stringByAppendingString:sender.currentTitle]; // was: [self.display setText:newDisplayText];
@@ -132,7 +137,19 @@
     NSString *resultString = [NSString stringWithFormat:@"%g", result];
     // change the display
     self.display.text = resultString;
-    self.equationLabel.text = [self.equationLabel.text stringByAppendingFormat:@" %@",sender.currentTitle];
+    self.equationLabel.text = [self.equationLabel.text stringByAppendingFormat:@" %@ = %G",sender.currentTitle, result];
+}
+
+- (IBAction)changeSignPressed:(UIButton *)sender {
+    /*  Assignment 1-Extra 3 : method and button added
+     */
+    if (self.userIsInTheMiddleOfEnteringANumber) 
+    {                                               // if the user was typing a number let the digitPressed: method handle it
+        [self digitPressed:sender];
+    } else 
+    {                                               // if the user is in operation mode let the operationPressed: method handle it
+        [self operationPressed:sender];
+    }
 }
 
 - (void)viewDidUnload {
